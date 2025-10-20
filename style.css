@@ -395,7 +395,7 @@ nav ul li a.active {
     margin-bottom: 20px;
 }
 
-/* Yeh naya style hai taaki email address highlight ho (since mailto link is removed) */
+/* Email text styling */
 .contact-section .contact-email { 
     color: var(--primary-color);
     font-weight: 600;
