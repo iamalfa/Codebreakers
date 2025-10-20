@@ -1,0 +1,268 @@
+/* Basic Reset and Variables */
+:root {
+    --primary-color: #007bff; /* Blue for branding */
+    --secondary-color: #f8f9fa; /* Light grey for sections */
+    --text-color: #333;
+    --heading-color: #111;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header and Navigation */
+header {
+    background: #fff;
+    color: var(--heading-color);
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    color: var(--heading-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: var(--primary-color);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #fff;
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    background: #e0e0e0;
+}
+
+/* Sections General */
+.section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.section:nth-child(even) { /* For Skills/Projects Section */
+    background: var(--secondary-color);
+}
+
+.section h2 {
+    font-size: 2rem;
+    color: var(--heading-color);
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+/* --- SKILLS Section Styles (NEW) --- */
+.skill-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    text-align: left;
+    transition: transform 0.3s;
+    border-top: 5px solid var(--primary-color); /* Highlight */
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+/* --- END SKILLS Section Styles --- */
+
+
+/* Projects/Experience Section Styles (Modified to use .project-card for experience) */
+.projects-section .container {
+    max-width: 900px; /* Narrower container for experience timeline look */
+}
+
+.projects-section .project-card {
+    background: white;
+    padding: 25px;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+.projects-section .project-card:hover {
+    background-color: #f0f0f0;
+}
+
+.projects-section .project-card h3 {
+    color: var(--heading-color);
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.project-meta {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact-section a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-section .handle {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background: var(--heading-color);
+    color: white;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Media Queries (For Responsiveness) --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li a {
+        padding: 5px 10px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .skill-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-card {
+        max-width: 90%;
+    }
+
+    .projects-section .project-card {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-links {
+        margin-top: 10px;
+    }
+}
