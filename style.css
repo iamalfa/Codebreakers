@@ -1,33 +1,268 @@
-/* ... (UPAR WALA POORA DARK THEME CSS WAISE HI RAKHO) ... */
-
-/* Certification Section Styles mein yeh naye classes add/update karo */
-.cert-card ul {
-    list-style-type: none; /* Remove dots */
-    padding-left: 0;
-    margin-top: 10px;
+/* General Setup */
+:root {
+    --bg-dark: #1a1a2e; /* Dark background */
+    --bg-card: #2c2c4b; /* Slightly lighter for cards */
+    --primary-color: #e94560; /* Highlight color (reddish-pink) */
+    --text-light: #e0e0e0;
+    --text-muted: #a0a0b0;
+    --border-color: #3f3f6e;
+    --font-family: 'Poppins', sans-serif;
 }
 
-.cert-card li {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-    padding-left: 15px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
+header {
+    background-color: var(--bg-card);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container img {
+    height: 40px; /* Adjust as needed */
+    margin-right: 10px;
+}
+
+.logo-container .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1550439062-cd036594ce8b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #f0f0f0;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.cta-button:hover {
+    background: #c73a50;
+    transform: translateY(-3px);
+}
+
+/* Section Styling */
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section:nth-child(even) { /* Alternate background for sections */
+    background-color: var(--bg-dark);
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 60px;
+    font-weight: 700;
     position: relative;
 }
 
-.cert-card h3 {
-    color: var(--text-light);
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+.section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
 }
 
-.cert-meta {
+
+/* Skill Grid */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.skill-card {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    transition: transform 0.3s, background-color 0.3s;
+    border: 1px solid var(--border-color);
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+    background-color: #3a3a5e;
+}
+
+.skill-card h3 {
     color: var(--primary-color);
-    font-size: 0.9rem;
-    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
 }
 
-/* Experience Card mein ul/li styles */
+.skill-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Project/Experience Cards */
+.experience-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px; /* Narrower for better readability */
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    transition: transform 0.3s, background-color 0.3s;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 2px solid var(--bg-dark);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    background-color: #3a3a5e;
+}
+
+.project-card h3 {
+    color: var(--text-light);
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+}
+
+.project-meta {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.project-card p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Experience List Item Styling */
 .project-card ul {
     list-style: none;
     padding-left: 0;
@@ -51,4 +286,156 @@
     margin-left: -1em;
 }
 
-/* ... (BAAKI CSS WAISE HI RAKHO) ... */
+
+/* Certifications Section */
+.certification-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cert-card {
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    transition: transform 0.3s;
+    border: 1px solid var(--border-color);
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+}
+
+.cert-card h3 {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.cert-meta {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Contact Section */
+.contact-section p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.contact-section a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.contact-section a:hover {
+    color: #c73a50;
+}
+
+.contact-section .social-contact-links {
+    margin-top: 30px;
+}
+
+.social-contact-links a {
+    display: inline-block;
+    margin: 0 15px;
+    color: var(--text-light);
+    font-size: 2rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-contact-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    background: var(--bg-card);
+    color: var(--text-muted);
+    padding: 30px 0;
+    font-size: 0.9rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+footer .social-links {
+    margin-top: 15px;
+}
+
+footer .social-links a {
+    color: var(--text-muted);
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer .social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Media Queries (Responsiveness) --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    .logo-container {
+        margin-bottom: 15px;
+    }
+
+    nav ul {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li a {
+        padding: 8px 12px;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    .skill-grid, .experience-grid, .certification-grid {
+        grid-template-columns: 1fr;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .project-card::before {
+        left: 5px;
+    }
+
+    .contact-section .social-contact-links a {
+        font-size: 1.5rem;
+        margin: 0 10px;
+    }
+
+    footer .container {
+        flex-direction: column;
+    }
+
+    footer .social-links {
+        margin-top: 10px;
+    }
+}
