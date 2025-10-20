@@ -287,7 +287,7 @@ nav ul li a.active {
 }
 
 
-/* Certifications Section */
+/* Certifications Section Styling */
 .certification-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -295,6 +295,26 @@ nav ul li a.active {
     justify-content: center;
     max-width: 1000px;
     margin: 0 auto;
+}
+
+/* Certification Card as a link (NEW) */
+.cert-card-link {
+    text-decoration: none; /* Link underline hatao */
+    display: block; /* Poore card ko clickable banao */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    position: relative;
+    z-index: 1; /* For stacking */
+}
+
+/* Hover Animation Effect (NEW) */
+.cert-card-link:hover {
+    transform: translateY(-8px); /* Card thoda upar uthe */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Shadow for lift effect */
+}
+
+/* Optional: Subtle animation on the card itself */
+.cert-card-link:hover .cert-card {
+    border-color: var(--primary-color);
 }
 
 .cert-card {
@@ -305,10 +325,7 @@ nav ul li a.active {
     text-align: left;
     transition: transform 0.3s;
     border: 1px solid var(--border-color);
-}
-
-.cert-card:hover {
-    transform: translateY(-5px);
+    height: 100%; /* Important for grid alignment */
 }
 
 .cert-card h3 {
@@ -323,26 +340,72 @@ nav ul li a.active {
     font-weight: 600;
 }
 
-/* Contact Section */
+
+/* Detail Page Specific Styles (NEW) */
+.detail-page .section {
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+
+.detail-title {
+    font-size: 3rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.detail-issuer {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.skill-focus {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.skill-focus h3 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.detail-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.certification-cta {
+    margin-top: 50px;
+    text-align: center;
+}
+
+
+/* Contact Section (Email Link issue fix) */
 .contact-section p {
     font-size: 1.1rem;
     color: var(--text-muted);
     margin-bottom: 20px;
 }
 
-.contact-section a {
+/* Yeh naya style hai taaki email address highlight ho (since mailto link is removed) */
+.contact-section .contact-email { 
     color: var(--primary-color);
-    text-decoration: none;
     font-weight: 600;
     font-size: 1.2rem;
     transition: color 0.3s;
+    display: inline-block; /* Taaki margin theek se lage */
+    margin-bottom: 20px;
 }
 
-.contact-section a:hover {
-    color: #c73a50;
-}
-
-.contact-section .social-contact-links {
+.social-contact-links {
     margin-top: 30px;
 }
 
